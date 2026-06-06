@@ -199,7 +199,7 @@ function validarFormulario(event) {
         email.style.borderColor = "#ff5252";
         isValid = false;
     } else if (email.value.indexOf("@") === -1 || email.value.indexOf(".") === -1) {
-        errorEmail.innerText = "Por favor, digite um formato de e-mail válido.";
+        errorEmail.innerText = "Por favor, digite um formato de e-mail válido!'";
         email.style.borderColor = "#ff5252";
         isValid = false;
     }
