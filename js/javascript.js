@@ -149,7 +149,7 @@ function showResults() {
     var resultBox = document.getElementById("quiz-result");
     resultBox.style.display = "block";
     
-    var feedbackMsg = "Bom esforço! Que tal ler nossa página para aprender mais?";
+    var feedbackMsg = "Boa Tentativa! Que tal ler nossa página para aprender mais?";
     if (score >= 7) {
         feedbackMsg = "Excelente! Você conhece muito sobre preservação!";
     }
