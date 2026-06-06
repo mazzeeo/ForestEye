@@ -1,27 +1,3 @@
-/* FONTES */
-@font-face {
-    font-family: "Space Grotesk";
-    src: url(../fonts/SpaceGrotesk-Bold.ttf);
-    font-weight: bold;
-}
-
-@font-face {
-    font-family: "Space Grotesk";
-    src: url(../fonts/SpaceGrotesk-Regular.ttf);
-    font-weight: normal;
-}
-
-@font-face {
-    font-family: "Adrianna Extended";
-    src: url(../fonts/adrianna-extended.otf) format("opentype");
-}
-
-/* RESET CSS */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 :root {
     --color-light: #f4f4f4;
@@ -38,6 +14,35 @@
     --spacing-sm: 10px;
     --spacing-md: 20px;
     --spacing-lg: 40px;
+    
+    /* Variáveis exclusivas para o Tema Floresta */
+    --color-forest-bg: #0b1a10;
+    --color-forest-card: #122b1b;
+    --color-forest-accent: #2e7d32;
+    --color-forest-text: #e8f5e9;
+}
+
+/* FONTES */
+@font-face {
+    font-family: "Space Grotesk";
+    src: url(../fonts/SpaceGrotesk-Bold.ttf);
+    font-weight: bold;
+}
+@font-face {
+    font-family: "Space Grotesk";
+    src: url(../fonts/SpaceGrotesk-Regular.ttf);
+    font-weight: normal;
+}
+@font-face {
+    font-family: "Adrianna Extended";
+    src: url(../fonts/adrianna-extended.otf) format("opentype");
+}
+
+/* RESET CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html {
@@ -48,6 +53,7 @@ body {
     background-color: white;
     color: #111111;
     font-family: var(--font-principal);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {
@@ -69,7 +75,7 @@ button a {
     height: 100%;
 }
 
-/* HEADER & NAV */
+
 .header-hero {
     display: flex;
     justify-content: space-between;
@@ -92,13 +98,19 @@ button a {
 .menu-list {
     display: flex;
     gap: 20px;
-    font-size: 20px;
+    font-size: 16px;
     align-items: center;
 }
 
+.menu-list a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
 .menu-list img {
-    width: 36px;
-    height: 36px;
+    width: 24px;
+    height: 24px;
     transition: transform 0.3s;
 }
 
@@ -120,23 +132,17 @@ button a {
     transition: background .3s ease, transform .2s ease;
 }
 
-.theme-toggle i {
-    width: 18px;
-    display: inline-flex;
-    justify-content: center;
-}
-
 .theme-toggle:hover {
-    background: rgba(255, 255, 255, 0.18);
+    background: var(--color-blue-dark);
     transform: scale(1.05) translateY(-1px);
 }
 
-/* SEÇÕES GERAIS */
-.problema, .tecnologia, .objetivos, .publico-alvo {
+
+.problema, .tecnologia, .objetivos, .publico-alvo, .quiz-section, .contato-section {
     min-height: 100vh;
 }
 
-/* HOME SECTION */
+
 .home {
     position: relative;
     display: flex;
@@ -148,15 +154,13 @@ button a {
     overflow: hidden;
 }
 
-/* Container que segura as imagens de fundo */
 .carousel-bg-container {
     position: absolute;
     inset: 0;
     z-index: -2;
-    background-color: var(--color-black); /* Cor de fundo caso a imagem demore a carregar */
+    background-color: var(--color-black);
 }
 
-/* Configuração de cada slide de background */
 .carousel-slide {
     position: absolute;
     inset: 0;
@@ -164,7 +168,7 @@ button a {
     background-position: center;
     background-repeat: no-repeat;
     opacity: 0;
-    transition: opacity 1.5s ease-in-out; /* Transição suave de fade */
+    transition: opacity 1.5s ease-in-out;
 }
 
 .carousel-slide.active {
@@ -178,7 +182,6 @@ button a {
     background: linear-gradient(135deg, rgba(23, 25, 28, 0.9) 0%, rgba(23, 25, 28, 0.76) 50%, rgba(23, 25, 28, 0.9) 100%);
     z-index: -1;
 }
-
 
 .home > .container,
 .imagem-principal {
@@ -197,20 +200,12 @@ button a {
 }
 
 .cta h2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    padding: 8px 20px;
-    border-radius: 50px;
     font-size: 26px;
     margin-bottom: 24px;
 }
 
 .cta p {
     font-size: 1.25rem;
-    margin-top: 40px;
-    margin-bottom: var(--spacing-lg);
     max-width: 580px;
 }
 
@@ -222,23 +217,8 @@ button a {
     padding: 10px 24px;
     border-radius: 50px;
     font-size: 15px;
-    margin: 0 auto var(--spacing-md);
+    margin: 0 auto;
     border: 2px solid var(--color-light);
-}
-
-.principal {
-    width: 400px;
-    max-width: 500px;
-    border-radius: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.principal img {
-    width: 100%;
-    height: auto;
-    display: block;
 }
 
 .btn {
@@ -255,7 +235,6 @@ button a {
     background-color: transparent;
 }
 
-/* PROBLEMA */
 .problema {
     background-color: var(--color-black-primary);
 }
@@ -318,9 +297,7 @@ button a {
     line-height: 1.7;
 }
 
-.primeirocard,
-.segundocard,
-.terceirocard {
+.primeirocard, .segundocard, .terceirocard {
     flex: 1;
     min-width: 340px;
     max-width: 340px;
@@ -331,11 +308,12 @@ button a {
     margin-bottom: 20px;
 }
 
-/* ANIMACAO MOTINHA */
+/* ANIMACAO SATÉLITE */
 .animacao {
     display: flex;
     justify-content: center;
     margin-top: 40px;
+    padding-bottom: 40px;
 }
 
 .animacao i {
@@ -347,7 +325,6 @@ button a {
     50% { transform: translateX(200px); }
 }
 
-/* TECNOLOGIA */
 .tecnologia {
     background-color: var(--color-dark-2);
     color: var(--color-light);
@@ -358,60 +335,40 @@ button a {
     align-items: center;        
     gap: 40px;                  
     max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 20px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
 }
 
 .st {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    padding: 80px 20px;
+    padding: 80px 20px 40px;
     text-align: center;
 }
 
 .st-texto {
     flex: 1;
-    min-width: 400px;
-    margin-right: 200px;
 }
 
 .st-esquerda {
     font-family: "Space Grotesk", sans-serif;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    width: 100%;
-    max-width: 800px;
-    font-size: 1.25rem;
-    text-align: left;
-    margin: 0;
     padding: 32px;
     background-color: var(--color-black-primary);
     border: 2px solid var(--color-blue);
     border-radius: 10px;
+    line-height: 1.6;
 }
 
 .st-imagem {
     flex: 1;
-    min-width: 280px;
     text-align: right;
     transition: transform .3s ease;
 }
 
-.st-imagem:hover {
-    transform: scale(1.05);
-}
-
 .st-imagem img {
-    height: 600px;
-    margin-left: 40px;
-    display: inline-block;
+    max-height: 450px;
     border-radius: 24px;
 }
 
-/* OBJETIVOS */
+
 .objetivo-titulo {
     color: var(--color-light);
     background-color: var(--color-black-primary);
@@ -425,11 +382,6 @@ button a {
 
 .objetivo-titulo h1 {
     font-size: 64px;
-    transition: transform .3s ease;
-}
-
-.objetivo-titulo h1:hover {
-    transform: scale(1.1);
 }
 
 .objetivos-conteudo {
@@ -441,7 +393,6 @@ button a {
     margin: 0 auto;
     padding: 40px 20px;
     background-color: var(--color-black-primary);
-    color: var(--color-light);
 }
 
 .objetivo-card {
@@ -449,23 +400,17 @@ button a {
     max-width: 340px;
     background: var(--color-black);
     border-radius: 24px;
-    overflow: hidden;
-    border: 1px solid rgba(173, 120, 120, 0.06);
-    color: var(--color-light);
     padding: 32px 28px;
     margin-bottom: 20px;
     text-align: center;
+    color: var(--color-light);
 }
 
 .objetivo-card h4 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin-bottom: 14px;
 }
 
 .objetivo-card img {
-    display: block;
     width: 128px;
     margin: 0 auto 40px;
     transition: transform .3s ease;
@@ -475,16 +420,6 @@ button a {
     transform: scale(1.25);
 }
 
-#titulo {
-    text-align: center;
-    transition: transform .2s ease;
-}
-
-#titulo:hover {
-    transform: scale(1.20);
-}
-
-/* PUBLICO ALVO */
 .publico-alvo {
     background-color: var(--color-dark-3);
     color: var(--color-light);
@@ -520,7 +455,6 @@ button a {
 .publico-content h1 {
     font-size: 2.2rem;
     margin-bottom: 8px;
-    color: var(--color-light);
     font-family: var(--font-bold);
 }
 
@@ -537,113 +471,274 @@ button a {
 
 .publico-content ul {
     list-style: none;
+    text-align: left;
 }
 
 .publico-content ul li {
-    padding: 10px 0 10px 24px;
-    position: relative;
+    padding: 8px 0;
 }
 
 #icones {
     font-size: 32px;
-    color: rgb(255, 255, 255);
     margin: 20px 0;
-    transition: transform 0.3s ease;
 }
 
-#icones:hover {
-    transform: rotate(15deg) scale(1.2);
+
+.quiz-section {
+    background-color: var(--color-black-primary);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px;
 }
 
-/* RODAPE */
+.quiz-content {
+    background-color: var(--color-black);
+    padding: 40px;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 700px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+.quiz-content h2 {
+    margin-bottom: 30px;
+    font-family: var(--font-bold);
+    color: var(--color-blue);
+}
+
+#question-box h3 {
+    margin-bottom: 25px;
+    font-size: 1.3rem;
+    line-height: 1.5;
+}
+
+.quiz-btn {
+    display: block;
+    width: 100%;
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    background-color: var(--color-black-primary);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+.quiz-btn:hover {
+    background-color: var(--color-blue);
+    color: var(--color-black);
+    transform: translateX(5px);
+}
+
+.result-box h3 {
+    font-size: 2rem;
+    color: #4caf50;
+    margin-bottom: 15px;
+}
+
+.result-box p {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+}
+
+
+.contato-section {
+    background-color: var(--color-dark-2);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px;
+}
+
+.contato-container {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.contato-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-family: var(--font-bold);
+}
+
+.contato-container p {
+    margin-bottom: 40px;
+    opacity: 0.8;
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--color-black-primary);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    color: white;
+    font-family: inherit;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-blue);
+}
+
+.error-msg {
+    color: #ff5252;
+    font-size: 0.8rem;
+    display: block;
+    margin-top: 5px;
+    min-height: 15px;
+}
+
+.btn-form {
+    width: 100%;
+    background-color: var(--color-blue);
+    color: var(--color-black);
+    padding: 16px;
+    border-radius: 100px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+.btn-form:hover {
+    background-color: white;
+    transform: translateY(-2px);
+}
+
+
 .rodape {
     font-family: var(--font-bold);
     background-color: #464646;
     font-size: 1.25rem;
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 40px 20px;
+}
+
+.rodape ul {
+    margin-top: 20px;
 }
 
 .rodape li {
     list-style: none;
     margin: 8px 0;
+    font-size: 1rem;
+    opacity: 0.9;
 }
 
-/* TEMAS (LIGHT / DARK) */
-body.light-theme .inteligenciaA {
-    color: white;
-}
 
-body.light-theme .data,
-body.light-theme .id,
-body.light-theme .velocidade {
-    filter: brightness(0);
-}
-
-body.light-theme #icon {
-    color: black;
-    animation: motinha 9s infinite linear;
-}
-
-body.dark-theme #icon {
-    color: white;
-    animation: motinha 9s infinite linear;
-}
-
-body.light-theme #icones {
+body.light-theme {
+    background-color: #f4f4f4;
     color: #111111;
 }
-
-body.light-theme .problema,
-body.light-theme .tecnologia,
-body.light-theme .objetivos,
-body.light-theme .publico-alvo,
-body.light-theme .objetivo-titulo {
+body.light-theme .problema, body.light-theme .tecnologia, 
+body.light-theme .objetivos, body.light-theme .publico-alvo, 
+body.light-theme .objetivo-titulo, body.light-theme .quiz-section, 
+body.light-theme .contato-section {
     background-color: #f4f4f4;
 }
-
-body.light-theme h1,
-body.light-theme h2,
-body.light-theme h3,
-body.light-theme h4,
-body.light-theme h5,
-body.light-theme h6,
-body.light-theme p,
-body.light-theme li,
-body.light-theme #titulo,
-body.light-theme .objetivo-card p,
-body.light-theme .objetivo-card h4,
-body.light-theme .objetivo-titulo h1,
-body.light-theme .objetivo-titulo h6 {
+body.light-theme h1, body.light-theme h2, body.light-theme h3, 
+body.light-theme h4, body.light-theme h5, body.light-theme h6, 
+body.light-theme p, body.light-theme li, body.light-theme label {
     color: #111111;
 }
-
-body.light-theme .primeirocard,
-body.light-theme .segundocard,
-body.light-theme .terceirocard,
-body.light-theme .publico-content,
-body.light-theme .st-esquerda,
-body.light-theme .objetivo-card {
+body.light-theme .primeirocard, body.light-theme .segundocard, 
+body.light-theme .terceirocard, body.light-theme .publico-content, 
+body.light-theme .st-esquerda, body.light-theme .objetivo-card, 
+body.light-theme .quiz-content, body.light-theme .form-group input, 
+body.light-theme .form-group textarea {
     background-color: white;
     color: #111111;
+    border: 1px solid #dddddd;
+}
+body.light-theme .form-group input, body.light-theme .form-group textarea {
+    color: #111111;
+}
+body.light-theme .quiz-btn {
+    background-color: #f0f0f0;
+    color: #111111;
+    border: 1px solid #ccc;
+}
+body.light-theme .quiz-btn:hover {
+    background-color: var(--color-blue);
+    color: white;
+}
+body.light-theme .data, body.light-theme .id, body.light-theme .velocidade, body.light-theme .objetivo-card img {
+    filter: brightness(0.2);
+}
+body.light-theme #icon, body.light-theme #icones {
+    color: #111111;
+}
+body.light-theme #icon {
+    animation: motinha 9s infinite linear;
 }
 
-body.light-theme .objetivo-card {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+body.forest-theme {
+    background-color: var(--color-forest-bg);
+    color: var(--color-forest-text);
+}
+body.forest-theme .problema, body.forest-theme .tecnologia, 
+body.forest-theme .objetivos, body.forest-theme .publico-alvo, 
+body.forest-theme .objetivo-titulo, body.forest-theme .quiz-section, 
+body.forest-theme .contato-section {
+    background-color: var(--color-forest-bg);
+}
+body.forest-theme h1, body.forest-theme h2, body.forest-theme h3, 
+body.forest-theme h4, body.forest-theme h5, body.forest-theme h6, 
+body.forest-theme p, body.forest-theme li, body.forest-theme label {
+    color: var(--color-forest-text);
+}
+body.forest-theme .primeirocard, body.forest-theme .segundocard, 
+body.forest-theme .terceirocard, body.forest-theme .publico-content, 
+body.forest-theme .st-esquerda, body.forest-theme .objetivo-card, 
+body.forest-theme .quiz-content, body.forest-theme .form-group input, 
+body.forest-theme .form-group textarea {
+    background-color: var(--color-forest-card);
+    color: var(--color-forest-text);
+    border: 1px solid rgba(76, 175, 80, 0.2);
+}
+body.forest-theme .quiz-btn {
+    background-color: var(--color-forest-bg);
+    color: var(--color-forest-text);
+    border: 1px solid rgba(76, 175, 80, 0.3);
+}
+body.forest-theme .quiz-btn:hover {
+    background-color: var(--color-forest-accent);
+    color: white;
+}
+body.forest-theme .btn-form, body.forest-theme .theme-toggle {
+    background-color: var(--color-forest-accent);
+    color: white;
+}
+body.forest-theme #icon, body.forest-theme #icones {
+    color: #81c784;
+}
+body.forest-theme #icon {
+    animation: motinha 9s infinite linear;
 }
 
-body.light-theme .objetivo-card img {
-    filter: brightness(0);
-}
-
-body.light-theme .objetivos-conteudo {
-    background-color: #7c7c7c;
-}
-
-body.dark-theme .problema,
-body.dark-theme .tecnologia,
-body.dark-theme .objetivos,
-body.dark-theme .publico-alvo {
-    background-color: #111111;
+/* Animação padrão do satélite no modo escuro */
+body:not(.light-theme):not(.forest-theme) #icon {
+    color: white;
+    animation: motinha 9s infinite linear;
 }
