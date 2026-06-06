@@ -214,7 +214,7 @@ function validarFormulario(event) {
         event.preventDefault();
     } else {
         event.preventDefault();
-        alert("Obrigado pelo contato! A equipe TechBuilders responderá em breve.");
+        alert("Obrigado pelo contato! A equipe TechBuilders responderá em breve. (Verifique a caixa de spam caso não receba uma resposta em até 48 horas.)");
         document.getElementById("contact-form").reset();
     }
 }
