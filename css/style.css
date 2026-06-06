@@ -737,7 +737,7 @@ body.forest-theme #icon {
     animation: motinha 9s infinite linear;
 }
 
-/* Animação padrão do satélite no modo escuro */
+/* Animação do satélite no modo escuro */
 body:not(.light-theme):not(.forest-theme) #icon {
     color: white;
     animation: motinha 9s infinite linear;
