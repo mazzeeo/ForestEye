@@ -205,7 +205,7 @@ function validarFormulario(event) {
     }
 
     if (mensagem.value.trim() === "") {
-        errorMensagem.innerText = "A mensagem não pode ser enviada vazia.";
+        errorMensagem.innerText = "O campo da mensagem não pode ficar vazio. Por favor, descreva sua dúvida ou comentário.";
         mensagem.style.borderColor = "#ff5252";
         isValid = false;
     }
