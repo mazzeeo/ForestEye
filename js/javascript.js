@@ -23,7 +23,6 @@ botaoTema.onclick = function() {
     }
 };
 
-// Carrossel de imagens de fundo
 var slides = document.querySelectorAll(".carousel-slide");
 var currentSlideIndex = 0;
 
@@ -110,13 +109,11 @@ function loadQuestion() {
     questionTitle.innerText = (currentQuestionIndex + 1) + ". " + currentQuiz.question;
     questionBox.appendChild(questionTitle);
 
-    // Loop tradicional para renderizar os botões das alternativas
     for (var i = 0; i < currentQuiz.options.length; i++) {
         var button = document.createElement("button");
         button.innerText = currentQuiz.options[i];
         button.classList.add("quiz-btn");
-        
-        // Armazena o índice atual em uma variável para o escopo do clique
+        e
         var indexSelecionado = i;
         button.onclick = criarManipuladorClique(indexSelecionado);
         
@@ -214,7 +211,7 @@ function validarFormulario(event) {
         event.preventDefault();
     } else {
         event.preventDefault();
-        alert("Obrigado pelo contato! A equipe TechBuilders responderá em breve. (Verifique a caixa de spam caso não receba uma resposta em até 48 horas.)");
+        alert("Obrigado pelo contato! A equipe TechBuilders responderá em breve. Enquanto isso, sinta-se à vontade para explorar mais sobre o ForestEye em nosso site.");
         document.getElementById("contact-form").reset();
     }
 }
