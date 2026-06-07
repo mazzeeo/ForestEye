@@ -211,7 +211,7 @@ function validarFormulario(event) {
         event.preventDefault();
     } else {
         event.preventDefault();
-        alert("Obrigado pelo contato! A equipe TechBuilders responderá em breve. Enquanto isso, sinta-se à vontade para explorar mais sobre o ForestEye em nosso site!");
+        alert("Obrigado pelo contato! A equipe TechBuilders responderá em breve. Seu feedback é muito importante para nós.");
         document.getElementById("contact-form").reset();
     }
 }
